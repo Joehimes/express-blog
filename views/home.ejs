@@ -1,0 +1,17 @@
+
+<%- include('partials/header') -%>
+
+
+<h1>Home</h1>
+<p><%= homeContent %></p>
+<% posts.forEach(item => {%>
+    <h2><%= item.title %></h2>
+    <% if (item.body.length < 500) {%>
+        <p><%= item.body %></p>
+    <%} else { %>
+        <p><%= item.body.slice(0, 500).concat('...') %> <a href="/posts/<%= item.title %>">Read more</a></p>
+    <%}%>
+<%})%>
+
+
+<%- include('partials/footer') -%>
